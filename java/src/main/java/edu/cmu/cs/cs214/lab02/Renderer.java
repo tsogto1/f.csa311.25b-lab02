@@ -3,17 +3,15 @@ package edu.cmu.cs.cs214.lab02;
 import edu.cmu.cs.cs214.lab02.shapes.*;
 
 public class Renderer {
-    public Rectangle rectangle;
-    
-    Renderer(Rectangle rectangle) {
-        this.rectangle = rectangle;
+    private Shape shape; // ⚡ shape хувьсагчийг private болгож өгөгдлийг нууцалсан
+
+    public Renderer(Shape shape) { // ⚡ Rectangle биш, ерөнхий Shape интерфэйсийг хүлээж авдаг болгосон
+        this.shape = shape;
     }
 
-    void draw() {
-        double area = rectangle.getArea();
-
-        // assume implementation
-
-        System.out.println("Shape printed\n" + "Its area is " + area);
+    public void draw() {
+        String shapeName = shape.getClass().getSimpleName(); // ⚡ Объектын нэрийг автоматаар авдаг болсон
+        double area = shape.getArea();
+        System.out.println(shapeName + " printed\n" + "Its area is " + area);
     }
 }

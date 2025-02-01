@@ -1,13 +1,17 @@
 package edu.cmu.cs.cs214.lab02;
 
-import edu.cmu.cs.cs214.lab02.shapes.Rectangle;
+import edu.cmu.cs.cs214.lab02.shapes.*;
 
 public class Main {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(2, 3);
-
+        Shape rectangle = new Rectangle(2, 3); //  Rectangle-ийг Shape интерфэйсээр авдаг болсон
         Renderer renderer = new Renderer(rectangle);
+        renderer.draw(); //  Дүрсийн нэрийг автоматаар хэвлэнэ
 
-        renderer.draw();
+        Shape circle = new Circle(5); //  Одоо Renderer нь зөвхөн Rectangle биш, бүх Shape-ийг дэмжинэ
+        new Renderer(circle).draw();
+
+        Shape square = new Square(4);
+        new Renderer(square).draw();
     }
 }
